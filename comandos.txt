@@ -1,0 +1,43 @@
+# Seguimiento 1 - Bioinformática
+# Mariana Salazar Diaz Granados
+# Archivo de comandos en formato de texto plano
+# Todas las explicaciones están comentadas con "#"
+
+# =========================================
+# 1. Descargar el archivo GFF del organismo Amphiprion percula
+# Usamos wget para descargar desde el FTP de Ensembl
+wget https://ftp.ensembl.org/pub/current_gff3/amphiprion_percula/Amphiprion_percula.Nemo_v1.114.gff3.gz
+
+# =========================================
+# 2. Descomprimir el archivo GFF
+# El archivo está comprimido en formato .gz, usamos gunzip
+gunzip Amphiprion_percula.Nemo_v1.114.gff3.gz
+
+# =========================================
+# 3. Verificar las primeras líneas del archivo GFF
+# Mostramos las primeras 10 líneas para asegurarnos que se descomprimió bien
+head Amphiprion_percula.Nemo_v1.114.gff3
+
+# =========================================
+# 4. Ver las primeras líneas sin comentarios (para observar las anotaciones)
+grep -v "^#" Amphiprion_percula.Nemo_v1.114.gff3 | head
+
+# =========================================
+# 5. Contar el número total de features en el archivo
+# (todas las líneas que no son comentarios)
+grep -v "^#" Amphiprion_percula.Nemo_v1.114.gff3 | wc -l
+
+# =========================================
+# 6. Contar el número de regiones de secuencia (cromosomas)
+# Estas se indican en las líneas que comienzan con ##sequence-region
+grep "^##sequence-region" Amphiprion_percula.Nemo_v1.114.gff3 | wc -l
+
+# =========================================
+# 7. Contar cuántos genes están listados
+# Filtramos las líneas donde la tercera columna es "gene"
+grep -P "\tgene\t" Amphiprion_percula.Nemo_v1.114.gff3 | wc -l
+
+# =========================================
+# 8. Obtener el top 10 de tipos de features más anotados
+# Tomamos la tercera columna, contamos y ordenamos
+grep -v "^#" Amphiprion_percula.Nemo_v1.114.gff3 | cut -f3 | sort | uniq -c | sort -nr | head -10
