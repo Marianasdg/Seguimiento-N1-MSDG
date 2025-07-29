@@ -52,15 +52,15 @@ La calidad de la anotación. Si no hay valor, se pone un punto (.).
 
 ### **7. strand**
 Indica en qué hebra se encuentra la anotación:
-(SIGNO +) → hebra directa
-(SIGNO -) → hebra complementaria
-(PUNTO .) → no aplica
+- (SIGNO +) → hebra directa
+- (SIGNO -) → hebra complementaria
+- (PUNTO .) → no aplica
 
 Ejemplos:
 
-(SIGNO +) → El gen ABC1 se encuentra en la hebra directa.
-(SIGNO -) → El gen XYZ2 está ubicado en la hebra complementaria.
-(PUNTO .) → El elemento regulador no se asocia a una hebra específica.
+- (SIGNO +) → El gen ABC1 se encuentra en la hebra directa.
+- (SIGNO -) → El gen XYZ2 está ubicado en la hebra complementaria.
+- (PUNTO .) → El elemento regulador no se asocia a una hebra específica.
 
 
 
